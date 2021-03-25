@@ -133,13 +133,8 @@ function vmg(position1, currentPosition, targetPosition , timeDelta){
     s = speed(position1, currentPosition, timeDelta)
     b = bearing(position1, currentPosition)
     b_to_mark = bearing(currentPosition, targetPosition)
-    //console.log(b)
-    //console.log(b_to_mark)
-
 
     bearing_differene = b - b_to_mark;
-    //console.log(s)
-    //console.log(bearing_differene)
 
     return Math.cos(bearing_differene) * s
 }
