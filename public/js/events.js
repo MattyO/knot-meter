@@ -19,7 +19,6 @@ function renderTemplate(templateMap, data) {
 
 
         element.html(compiled(data));
-        element.addClass("tempate--rendered")
     });
 }
 

@@ -79,7 +79,7 @@ describe("findMark", function(){
     it("finds F", function(){
         var foundMark = findMark("F");
         expect(foundMark.name).toBe("F");
-        expect(foundMark.longitude).toBe(81.2665);
+        expect(foundMark.longitude).toBe(-81.2665);
     })
 })
 
@@ -167,11 +167,11 @@ describe("App", function(){
         });
 
         it("heading", function(){
-            expect(Math.floor(app.currentData().heading)).toEqual(38)
+            expect(Math.floor(app.currentData().heading)).toEqual(321)
         });
 
         it("bearing", function(){
-            expect(Math.floor(app.currentData().bearing)).toEqual(353)
+            expect(Math.floor(app.currentData().bearing)).toEqual(6)
         });
 
         it('distance', function(){

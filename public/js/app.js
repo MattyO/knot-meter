@@ -137,7 +137,7 @@ function vmg(position1, currentPosition, targetPosition , timeDelta){
     //console.log(b_to_mark)
 
 
-    bearing_differene = Math.abs(b_to_mark - b)
+    bearing_differene = b - b_to_mark;
     //console.log(s)
     //console.log(bearing_differene)
 
