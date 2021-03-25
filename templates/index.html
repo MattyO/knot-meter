@@ -1,0 +1,38 @@
+<htmL>
+  <head>
+     <script src="/public/vendor/js/underscore-min.js"></script>
+     <script src="/public/vendor/js/jquery-3.6.0.min.js "></script>
+
+     <script src="/public/js/app.js"></script>
+     <script src="/public/js/events.js"></script>
+     <style>
+        .template {
+          visibility: hidden;
+        }
+
+        .tempate--rendered {
+          visibility: visible;
+        }
+
+     </style>
+  </head>
+  <body>
+    <div id="app">
+      <script type="text/template" class="template">
+        <ul>
+        <% _.each(app.course.marks, function(mark, i){ %>
+          <li> <%= mark %> </li>
+        <% }); %>
+        </ul> 
+      </script>
+
+      <div id="speed"     class="datum"></div>
+      <div id="heading"   class="datum"></div>
+      <div id="bearing"   class="datum"></div>
+      <div id="distance"  class="datum"></div>
+      <div id="vmg"       class="datum"></div>
+      <div id="eta"       class="datum"></div>
+    </div>
+
+  </body>
+</htmL>
