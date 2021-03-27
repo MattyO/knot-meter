@@ -3,3 +3,22 @@ body {
   color: #fdfdfd; 
 }
 
+.course {
+    display: inline-block;
+    border: 1px solid #fdfdfd;
+    margin: 10px;
+}
+
+ul.course li {
+    float: left;
+    padding: 10px;
+}
+
+
+ul.course li:after {
+    content: "→";
+}
+
+ul.course li:last-child:after {
+    content: "";
+}
