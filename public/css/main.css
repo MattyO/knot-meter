@@ -22,3 +22,34 @@ ul.course li:after {
 ul.course li:last-child:after {
     content: "";
 }
+
+.datum {
+}
+
+.datum__heading {
+}
+
+.datum__heading {
+}
+
+#app{
+    max-width: 1000px;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button.actions {
+    float: right;
+
+    height: 50px;
+    width: 50px;
+
+
+    background-color: #2d2d2d;
+    color: #fdfdfd; 
+    border: 1px solid #fdfdfd;
+
+}
+
