@@ -1,6 +1,7 @@
 body {
   background-color: #2d2d2d;
   color: #fdfdfd; 
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .course {
@@ -24,13 +25,25 @@ ul.course li:last-child:after {
 }
 
 .datum {
+    float: left;
+    width: 49%;
+    margin: 0px;
+    text-align: center;
+    padding-bottom: 40px;
 }
 
-.datum__heading {
+.datum__header {
+    font-size: 40px;
 }
 
-.datum__heading {
+.datum__field {
+    font-size: 80px;
 }
+
+.datum__unit {
+    font-size: 35px;
+}
+
 
 #app{
     max-width: 1000px;
@@ -52,4 +65,5 @@ button.actions {
     border: 1px solid #fdfdfd;
 
 }
+
 
