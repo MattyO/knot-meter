@@ -34,7 +34,7 @@ $(document).ready(function(){
             app.addPoint(position.coords, now)
 
             _.mapObject(app.currentData(), function(value, key) {
-                $("#" + key).html(value)
+                $("#" + key).html(roundDecimals(value, 2))
             });
 
             renderTemplate(templateMap, {app: app })

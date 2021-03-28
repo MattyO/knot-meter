@@ -56,8 +56,8 @@ class App {
             "bearing": bearing(lastItem.position, targetMark),
             "distance": tempDistance,
             "speed": speed(secondToLastItem.position, lastItem.position, timeDelta),
-            "vmg": "NA",
-            "eta": "NA", 
+            "vmg": 0,
+            "eta": 0, 
         };
     }
 

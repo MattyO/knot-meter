@@ -4,10 +4,20 @@ body {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+.header {
+    height: 60px;
+}
+
 .course {
+    text-align: center;
     display: inline-block;
-    border: 1px solid #fdfdfd;
-    margin: 10px;
+    font-size: 30px;
+    padding-bottom: 30px;
+    padding: 0px;
+    margin: 0px;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 ul.course li {
