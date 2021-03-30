@@ -13,7 +13,14 @@ var marks = [
 ]
 
 var courses = [
-    {"name": "S1",  "marks" : ['S', 'A', 'S', 'A', 'S' ] }
+    {"name": "A1",  "marks" : ['S', 'A', 'S', 'A', 'S' ] },
+    {"name": "B1",  "marks" : ['S', 'B', 'S', 'B', 'S' ] },
+    {"name": "C1",  "marks" : ['S', 'C', 'S', 'C', 'S' ] },
+    {"name": "D1",  "marks" : ['S', 'D', 'S', 'D', 'S' ] },
+    {"name": "E1",  "marks" : ['S', 'E', 'S', 'E', 'S' ] },
+    {"name": "F1",  "marks" : ['S', 'F', 'S', 'F', 'S' ] },
+    {"name": "G1",  "marks" : ['S', 'G', 'S', 'G', 'S' ] },
+    {"name": "H1",  "marks" : ['S', 'H', 'S', 'H', 'S' ] },
 ]
 
 function findMark(name){
@@ -30,6 +37,10 @@ class App {
     constructor() {
         this.points = [];
         this.markIndex = -1;
+    }
+
+    get courses() {
+        return courses;
     }
 
     get nextMark() {
