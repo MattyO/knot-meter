@@ -1,3 +1,7 @@
+//document.getElementsByClassName('test')
+//document.getElementById('main').getElementsByClassName('test')
+//var el = document.querySelector("div.user-panel:not(.main) input[name='login']");
+
 function onPageLoad(callback) { 
     if (
         document.readyState === "complete" ||

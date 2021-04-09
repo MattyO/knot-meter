@@ -191,4 +191,34 @@ describe("App", function(){
         });
 
     });
+
+    describe("mock", function() {
+        it('return the expected value', function(){
+            spyOn(app, "mockMe").and.returnValue("bar");
+            expect(app.mockMe()).toEqual("bar")
+        });
+    });
+
+});
+
+describe('Page', function(){
+    beforeEach(function(){
+        page = new Page()
+    });
+
+    describe('onPageLoad', function(){
+        it('calls callback when readyState is complete', function(done){
+            spyOnProperty(document, "readyState", "get").and.returnValue('complete');
+            callbackCalled = false
+
+            function callback(){
+                callbackCalled  = true;
+                done();
+            }
+
+            page.onLoad(callback);
+
+            expect(callbackCalled).toEqual(true);
+        });
+    });
 });

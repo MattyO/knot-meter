@@ -39,6 +39,10 @@ class App {
         this.markIndex = -1;
     }
 
+    mockMe(){
+        return 'foo'
+    }
+
     get courses() {
         return courses;
     }
