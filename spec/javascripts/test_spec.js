@@ -106,13 +106,13 @@ describe("App", function(){
 
     describe(".setCourse", function(){
         it("sets in an internal course property", function(){
-            app.setCourse("S1")
-            expect(app.course.name).toBe("S1")
+            app.setCourse("A1")
+            expect(app.course.name).toBe("A1")
             expect(app.course.marks).toEqual(['S', 'A', 'S', 'A', 'S' ])
         });
 
         it("sets the next mark to be the first one", function(){
-            app.setCourse("S1")
+            app.setCourse("A1")
             expect(app.markIndex).toBe(0)
         })
     });
@@ -132,14 +132,14 @@ describe("App", function(){
 
     describe("nextMark", function(){
         it("returns the first mark after you set the course", function(){
-            app.setCourse("S1")
+            app.setCourse("A1")
             s = findMark("S")
 
             expect(app.nextMark).toEqual(s)
         });
 
         it("returns the make based on the course and index", function(){
-            app.setCourse("S1");
+            app.setCourse("A1");
             a = findMark("A");
 
             app.markIndex = 1;
@@ -162,7 +162,7 @@ describe("App", function(){
 
             app.addPoint(d, twoHoursgo)
             app.addPoint(s, now)
-            app.setCourse("S1")
+            app.setCourse("A1")
             app.markIndex = 1
         });
 
