@@ -1,6 +1,21 @@
 class Page{
     templateMap = {}
 
+    elements(selector) {
+        return document.querySelectorAll(selector);
+    }
+
+    getById(id){
+        return document.getElementById(id);
+    }
+
+    newElement(elementText){
+        return document.createElement(elementText);
+    }
+
+    replace(selector, newNode){
+    }
+
     onLoad(callback) { 
         if (
             document.readyState === "complete" ||
@@ -16,12 +31,12 @@ class Page{
 
     collectTemplates(){
 
-        $('.template').each(function(){
+        _.each(this.elements('.template'), function(element){
             var id = _.uniqueId("template_");
-            var templateContent = $(this).html();
+            var templateContent = element.innerHTML();
 
             this.templateMap[id] = templateContent;
-            $(this).replaceWith('<div id="' + id + '"></div>')
+            $(element).replaceWith('<div id="' + id + '"></div>')
         })
 
     }
@@ -29,10 +44,10 @@ class Page{
     renderTemplate(data) {
         _.mapObject(this.templateMap, function(value, key){
             var compiled = _.template(value);
-            var element = $("#" + key)
+            var element = this.getById("#" + key)
 
 
-            element.html(compiled(data));
+            element.innerHTML = compiled(data);
         });
     }
 }
