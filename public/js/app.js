@@ -33,11 +33,19 @@ class App {
     markIndex = -1;
     points = null;
     isRecording = false;
+    //events = new Events()
 
     constructor() {
         this.points = [];
         this.markIndex = -1;
+
     }
+
+    //start(){
+    //    this.events.addLoop("tick", this.tick, 1000);
+    //    this.events.attachButtonListener(this.page.findElement("#chooseCourse"), this.chooseCourse);
+    //    this.events.removeLoop("tick");
+    //}
 
     mockMe(){
         return 'foo'

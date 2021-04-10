@@ -207,18 +207,44 @@ describe('Page', function(){
     });
 
     describe('onPageLoad', function(){
+        beforeEach(function(){
+            callbackCalled = false
+        });
+
         it('calls callback when readyState is complete', function(done){
             spyOnProperty(document, "readyState", "get").and.returnValue('complete');
-            callbackCalled = false
 
+            page.onLoad(function(){
+                callbackCalled  = true;
+                done();
+            });
+
+            expect(callbackCalled).toEqual(true);
+        });
+
+        it('calls callback when readyState is not loading and is not doScroll', function(done){
+            spyOnProperty(document, "readyState", "get").and.returnValue('notloading');
+            spyOnProperty(document, "documentElement", "get").and.returnValue({'doScroll': false});
+
+            page.onLoad(function(){
+                callbackCalled  = true;
+                done();
+            });
+
+            expect(callbackCalled).toEqual(true);
+        });
+        it('regesters callback to the DOMContentLoaded event', function(){
+            spyOnProperty(document, "readyState", "get").and.returnValue('loading');
+            addEventListenerSpy = spyOn(document, "addEventListener");
             function callback(){
                 callbackCalled  = true;
                 done();
             }
 
-            page.onLoad(callback);
+            page.onLoad(callback)
 
-            expect(callbackCalled).toEqual(true);
+            expect(callbackCalled).toEqual(false);
+            expect(addEventListenerSpy).toHaveBeenCalledWith("DOMContentLoaded", callback);
         });
     });
 });
