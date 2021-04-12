@@ -36,10 +36,10 @@ class Page{
 
         _.each(this.elements('.template'), function(element){
             var id = _.uniqueId("template_");
-            var templateContent = element.innerHTML();
+            var templateContent = element.innerHTML;
 
             that.templateMap[id] = templateContent;
-            that.replaceElement(element, '<div id="' + id + '"></div>')
+            that.replaceElement(element, '<div id="#' + id + '"></div>')
         })
 
     }
@@ -49,6 +49,7 @@ class Page{
 
         _.mapObject(this.templateMap, function(value, key){
             var compiled = _.template(value);
+            console.log("#" + key)
             var element = that.getById("#" + key)
 
             element.innerHTML = compiled(data);

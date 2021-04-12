@@ -251,14 +251,12 @@ describe('Page', function(){
             page.collectTemplates();
 
             tempateMapKeys = _.keys(page.templateMap);
-            expect(replaceElementSpy).toHaveBeenCalledWith(elementMock, '<div id="' + tempateMapKeys[0] + '"></div>')
+            expect(replaceElementSpy).toHaveBeenCalledWith(elementMock, '<div id="#' + tempateMapKeys[0] + '"></div>')
         });
 
         it('saves a the template content in an array', function(){
             elementMock = jasmine.createSpy('element')
-            elementMock.innerHTML = function() {
-                return "innerHtmlContent"
-            }
+            elementMock.innerHTML = "innerHtmlContent" 
 
             spyOn(page, "elements").and.returnValue([elementMock])
             spyOn(page, "replaceElement")

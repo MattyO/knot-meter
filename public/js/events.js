@@ -39,9 +39,11 @@ function renderTemplate(templateMap, data) {
 }
 
 onPageLoad(function(){
-    var app = new App()
+    var app = new App();
+    var page = new Page();
     var startTime = (new Date()).getTime();
-    var templateMap = collectTemplates();
+
+    page.collectTemplates();
 
     app.setCourse("A1")
     var updateLoop = setInterval(function(){
@@ -53,7 +55,7 @@ onPageLoad(function(){
                 $("#" + key).html(roundDecimals(value, 2))
             });
 
-            renderTemplate(templateMap, {app: app})
+            page.renderTemplate({app: app})
         });
 
         if( (new Date()).getTime() - startTime > 10000){

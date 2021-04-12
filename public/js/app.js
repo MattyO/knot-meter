@@ -41,11 +41,11 @@ class App {
 
     }
 
-    //start(){
+    start(){
     //    this.events.addLoop("tick", this.tick, 1000);
     //    this.events.attachButtonListener(this.page.findElement("#chooseCourse"), this.chooseCourse);
     //    this.events.removeLoop("tick");
-    //}
+    }
 
     get courses() {
         return courses;
