@@ -98,12 +98,6 @@ describe("App", function(){
 
     });
 
-    describe(".nextMark", function(){
-        it('starts as -1 to designate undefined', function(){
-            expect(app.markIndex).toBe(-1)
-        })
-    });
-
     describe(".setCourse", function(){
         it("sets in an internal course property", function(){
             app.setCourse("A1")
@@ -147,6 +141,9 @@ describe("App", function(){
             expect(app.nextMark).toEqual(a);
         })
 
+        it('starts as -1 to designate undefined', function(){
+            expect(app.markIndex).toBe(-1)
+        })
     })
 
     describe(".currrentData", function() {
@@ -190,13 +187,6 @@ describe("App", function(){
         it('eta', function(){
         });
 
-    });
-
-    describe("mock", function() {
-        it('return the expected value', function(){
-            spyOn(app, "mockMe").and.returnValue("bar");
-            expect(app.mockMe()).toEqual("bar")
-        });
     });
 
 });

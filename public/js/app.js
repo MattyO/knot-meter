@@ -47,10 +47,6 @@ class App {
     //    this.events.removeLoop("tick");
     //}
 
-    mockMe(){
-        return 'foo'
-    }
-
     get courses() {
         return courses;
     }
