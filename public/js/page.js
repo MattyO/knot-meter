@@ -13,7 +13,8 @@ class Page{
         return document.createElement(elementText);
     }
 
-    replace(selector, newNode){
+    replaceElement(element, withString){
+        $(element).replaceWith(withString)
     }
 
     onLoad(callback) { 
@@ -29,9 +30,6 @@ class Page{
 
     }
 
-    replaceElement(element, withString){
-        $(element).replaceWith(withString)
-    }
 
     collectTemplates(){
         var that = this;
@@ -45,13 +43,13 @@ class Page{
         })
 
     }
-    
 
     renderTemplate(data) {
+        var that = this
+
         _.mapObject(this.templateMap, function(value, key){
             var compiled = _.template(value);
-            var element = this.getById("#" + key)
-
+            var element = that.getById("#" + key)
 
             element.innerHTML = compiled(data);
         });

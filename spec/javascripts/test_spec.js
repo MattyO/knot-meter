@@ -261,7 +261,7 @@ describe('Page', function(){
             page.collectTemplates();
 
             tempateMapKeys = _.keys(page.templateMap);
-            expect(replaceElementSpy).toHaveBeenCalledWith(elementMock, '<div id="template_1"></div>')
+            expect(replaceElementSpy).toHaveBeenCalledWith(elementMock, '<div id="' + tempateMapKeys[0] + '"></div>')
         });
 
         it('saves a the template content in an array', function(){
@@ -279,6 +279,20 @@ describe('Page', function(){
             expect(tempateMapKeys.length).toEqual(1)
             expect(page.templateMap[tempateMapKeys]).toEqual("innerHtmlContent")
         });
+
+    });
+
+    describe('renderTemplate', function(){
+        it('sets the elememnt it finds', function(){
+            page.templateMap = {'template_1': 'innerHtmlContent'}
+            elementMock = jasmine.createSpy('element')
+            getByIdSpy = spyOn(page, 'getById').and.returnValue(elementMock)
+
+            page.renderTemplate()
+
+            expect(getByIdSpy).toHaveBeenCalledWith("#template_1")
+            expect(elementMock.innerHTML).toEqual("innerHtmlContent")
+        })
 
     });
 });
