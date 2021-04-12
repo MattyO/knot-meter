@@ -247,4 +247,38 @@ describe('Page', function(){
             expect(addEventListenerSpy).toHaveBeenCalledWith("DOMContentLoaded", callback);
         });
     });
+
+    describe('collectTemplates', function(){
+        it('replaces the element with a div with a unique id', function(){
+            elementMock = jasmine.createSpy('element')
+            elementMock.innerHTML = function() {
+                return "innerHtmlContent"
+            }
+
+            spyOn(page, "elements").and.returnValue([elementMock])
+            replaceElementSpy = spyOn(page, "replaceElement")
+
+            page.collectTemplates();
+
+            tempateMapKeys = _.keys(page.templateMap);
+            expect(replaceElementSpy).toHaveBeenCalledWith(elementMock, '<div id="template_1"></div>')
+        });
+
+        it('saves a the template content in an array', function(){
+            elementMock = jasmine.createSpy('element')
+            elementMock.innerHTML = function() {
+                return "innerHtmlContent"
+            }
+
+            spyOn(page, "elements").and.returnValue([elementMock])
+            spyOn(page, "replaceElement")
+
+            page.collectTemplates();
+
+            tempateMapKeys = _.keys(page.templateMap);
+            expect(tempateMapKeys.length).toEqual(1)
+            expect(page.templateMap[tempateMapKeys]).toEqual("innerHtmlContent")
+        });
+
+    });
 });

@@ -29,17 +29,23 @@ class Page{
 
     }
 
+    replaceElement(element, withString){
+        $(element).replaceWith(withString)
+    }
+
     collectTemplates(){
+        var that = this;
 
         _.each(this.elements('.template'), function(element){
             var id = _.uniqueId("template_");
             var templateContent = element.innerHTML();
 
-            this.templateMap[id] = templateContent;
-            $(element).replaceWith('<div id="' + id + '"></div>')
+            that.templateMap[id] = templateContent;
+            that.replaceElement(element, '<div id="' + id + '"></div>')
         })
 
     }
+    
 
     renderTemplate(data) {
         _.mapObject(this.templateMap, function(value, key){
