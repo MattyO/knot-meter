@@ -9,9 +9,9 @@ class Page{
         return document.getElementById(id);
     }
 
-    newElement(elementText){
-        return document.createElement(elementText);
-    }
+    //newElement(elementText){
+    //    return document.createElement(elementText);
+    //}
 
     replaceElement(element, withString){
         $(element).replaceWith(withString)

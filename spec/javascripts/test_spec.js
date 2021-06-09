@@ -1,22 +1,14 @@
-function success(position) {
-    const latitude  = position.coords.latitude;
-    const longitude = position.coords.longitude;
-
-    //console.log(latitude)
-    //console.log(longitude)
-}
-
-describe("A suite is just a function", function() {
-  it("navigaotr does stuff", function(){
-      navigator.geolocation.getCurrentPosition(success);
-  });
-});
-
 describe("radians", function(){
     it("works", function(){
         expect(radians(1)).toBe(1 / 180.0 * Math.PI);
     });
 });
+
+describe("findCourse", function() {
+    it("works", function(){ 
+        expect(findCourse("A1")).toBe(courses[0]);
+    })
+})
 
 describe("roundDecimals", function(){
     it('rounds to 2 decimals', function(){
@@ -97,6 +89,13 @@ describe("App", function(){
         })
 
     });
+    
+    describe('getCourses', function(){
+        it("return the courses", function() {
+            expect(app.courses).toEqual(courses)
+
+        })
+    });
 
     describe(".setCourse", function(){
         it("sets in an internal course property", function(){
@@ -147,44 +146,52 @@ describe("App", function(){
     })
 
     describe(".currrentData", function() {
-        beforeEach(function(){
-            var milisecondsInAnHour = 60 * 60 * 1000
-
-
-            var now = (new Date()).getTime();
-            var d = findMark("D");
-            var a = findMark("A");
-            var s = findMark("S");
-            var twoHoursgo = now - (2.0 * milisecondsInAnHour)
-
-            app.addPoint(d, twoHoursgo)
-            app.addPoint(s, now)
-            app.setCourse("A1")
-            app.markIndex = 1
+        describe("default", function() {
+            it('returns an empty hash', function() {
+                expect(app.currentData()).toEqual({})
+            })
         });
 
-        it("heading", function(){
-            expect(Math.floor(app.currentData().heading)).toEqual(321)
-        });
+        describe("with two points", function() {
+            beforeEach(function(){
+                var milisecondsInAnHour = 60 * 60 * 1000
 
-        it("bearing", function(){
-            expect(Math.floor(app.currentData().bearing)).toEqual(6)
-        });
 
-        it('distance', function(){
-            expect(roundDecimals(app.currentData().distance, 2)).toEqual(.85)
-        });
+                var now = (new Date()).getTime();
+                var d = findMark("D");
+                var a = findMark("A");
+                var s = findMark("S");
+                var twoHoursgo = now - (2.0 * milisecondsInAnHour)
 
-        it('speed', function(){ 
-            expect(roundDecimals(app.currentData().speed, 2)).toEqual(.45)
-        })
+                app.addPoint(d, twoHoursgo)
+                app.addPoint(s, now)
+                app.setCourse("A1")
+                app.markIndex = 1
+            });
 
-        it('vmg', function(){ 
-            //console.log('testing current data vmg')
-            //expect(roundDecimals(app.currentData().vmg, 2)).toEqual(.23)
-        });
+            it("heading", function(){
+                expect(Math.floor(app.currentData().heading)).toEqual(321)
+            });
 
-        it('eta', function(){
+            it("bearing", function(){
+                expect(Math.floor(app.currentData().bearing)).toEqual(6)
+            });
+
+            it('distance', function(){
+                expect(roundDecimals(app.currentData().distance, 2)).toEqual(.85)
+            });
+
+            it('speed', function(){ 
+                expect(roundDecimals(app.currentData().speed, 2)).toEqual(.45)
+            })
+
+            it('vmg', function(){ 
+                //console.log('testing current data vmg')
+                //expect(roundDecimals(app.currentData().vmg, 2)).toEqual(.23)
+            });
+
+            it('eta', function(){
+            });
         });
 
     });
@@ -195,6 +202,17 @@ describe('Page', function(){
     beforeEach(function(){
         page = new Page()
     });
+
+
+    describe('getById', function() {
+        it('delegates to the getElementById function', function() {
+            element = jasmine.createSpy('element');
+            spyOn(document, "getElementById").and.returnValue(element);
+
+            expect(page.getById('testid')).toBe(element);
+        });
+    });
+
 
     describe('onPageLoad', function(){
         beforeEach(function(){

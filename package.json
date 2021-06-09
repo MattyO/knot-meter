@@ -1,0 +1,38 @@
+{
+  "name": "knot-meter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattyO/knot-meter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MattyO/knot-meter/issues"
+  },
+  "homepage": "https://github.com/MattyO/knot-meter#readme",
+  "devDependencies": {
+    "grunt-contrib-jasmine": "*",
+    "grunt-contrib-jshint": "^3.0.0",
+    "grunt-template-jasmine-istanbul": "^0.5.0",
+    "jasmine": "^3.7.0",
+    "jasmine-console-reporter": "^3.1.0",
+    "karma": "^6.3.3",
+    "karma-coverage": "^2.0.3",
+    "karma-firefox-launcher": "^2.1.1",
+    "nyc": "^15.1.0"
+  },
+  "dependencies": {
+    "grunt": "^1.4.1",
+    "grunt-cli": "^1.4.3",
+    "grunt-jasmine-runner": "^0.6.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^4.0.1",
+    "phantomjs": "^2.1.7"
+  },
+  "description": ""
+}
