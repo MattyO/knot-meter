@@ -81,7 +81,9 @@ class App {
     }
 
     setCourse(name) {
+        console.log('in set course')
         this.course = _.find(courses, function(c) { return c.name == name; });
+        console.log(this.course);
         this.markIndex = 0;
     }
 

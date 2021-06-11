@@ -22,7 +22,6 @@ class Page{
             document.readyState === "complete" ||
             (document.readyState !== "loading" && !document.documentElement.doScroll)
         ) {
-            console.log('calling callback');
             callback();
         } else {
             document.addEventListener("DOMContentLoaded", callback);
@@ -49,7 +48,6 @@ class Page{
 
         _.mapObject(this.templateMap, function(value, key){
             var compiled = _.template(value);
-            console.log("#" + key)
             var element = that.getById("#" + key)
 
             element.innerHTML = compiled(data);

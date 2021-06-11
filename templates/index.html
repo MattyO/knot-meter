@@ -104,13 +104,13 @@
         <div class="modal-body">
           <form id="chooseCourse"> 
               <script type="text/template" class="template">
-                <select name="course">
+                <select id="chooseCourse_course" name="course">
                   <% _.each(app.courses, function(course, i){ %>
-                    <option value="<%= i %>"> <%= course.name %> </li>
+                    <option value="<%= course.name %>"> <%= course.name %> </li>
                   <% }); %>
                 </select>
               </script>
-              <input type="submit" ></input>
+              <input id="submitCourse" type="submit" ></input>
           </form>
         </div>
         <div class="modal-footer">

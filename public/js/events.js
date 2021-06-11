@@ -58,9 +58,9 @@ onPageLoad(function(){
             page.renderTemplate({app: app})
         });
 
-        if( (new Date()).getTime() - startTime > 10000){
-            clearInterval(updateLoop);
-        }
+        //if( (new Date()).getTime() - startTime > 10000){
+        //    clearInterval(updateLoop);
+        //}
     }, 1000)
 
 
@@ -94,8 +94,10 @@ onPageLoad(function(){
 
         $("form").submit(function(e, data){
             e.preventDefault();
-            console.log($(this).serializeArray());
-            app.submitEvent($(this).attr('id'), e);
+            //console.log($(this).serializeArray());
+            app.setCourse(document.getElementById("chooseCourse_course").value)
+            modal.style.display = "none";
+            //app.submitEvent($(this).attr('id'), e);
         });
     }
 });
